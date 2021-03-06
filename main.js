@@ -9,9 +9,20 @@ $(document).ready(function() {
     $('.prev').click(
         function() {
             prevPic();
-            prevSpot()
+            prevSpot();
         }
     )
+
+    $(document).keydown(function (e){
+        if (e.keyCode == 37 || e.keyCode == 40) {
+            prevPic();
+            prevSpot();
+         } else if (e.keyCode == 39  || e.keyCode == 38) {
+            nextPic();
+            nextSpot();
+         }
+      })
+
 })
 
 function nextPic() {
@@ -57,4 +68,10 @@ function prevSpot() {
     activeSpot.prev('i').addClass('active');
     }
 }
+
+$('.nav i').click(
+    function() {
+        console.log($(this));
+    }
+)
 
